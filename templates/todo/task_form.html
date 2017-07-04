@@ -1,0 +1,43 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+
+
+    <div class="ui padded centered grid">
+        <div class="row">
+            <div class="column">
+                <h2 class="ui center aligned header">
+                    <i class="edit box icon"></i>
+                    <div class="content">
+                        Edit task
+                    </div>
+                </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <form class="ui form" action="" method='post'>
+                    {% csrf_token %}
+                    <p>{{ form.text.label }}:
+                        {{ form.text }}</p>
+                    <p>
+                    <div class="ui checkbox">
+                        {% if task.done %}
+                            <input type="checkbox" name="done" checked>
+                        {% else %}
+                            <input type="checkbox" name="done">
+                        {% endif %}
+                        <label>{{ form.done.label }}</label>
+                    </div>
+                    </p>
+                    <input class="ui button" value='Save Task' type='submit'>
+                    <a class="ui button" href="{% url 'todo:home' %}">Back</a>
+                </form>
+            </div>
+        </div>
+        {% include 'todo/message_error.html' %}
+
+    </div>
+
+
+{% endblock %}

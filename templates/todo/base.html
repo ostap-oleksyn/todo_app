@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TODO</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css" rel="stylesheet"
+          type="text/css"/>
+    <style media="screen" type="text/css">
+
+        #task-text {
+            word-wrap: break-word
+        }
+
+        #content {
+            max-width: 650px;
+            margin: 10px auto;
+        }
+
+        #task-wrap {
+            display: flex;
+        }
+
+        #task {
+            flex: 1;
+        }
+
+        #add-task{
+            display: flex;
+        }
+
+        #id_text{
+            flex: 1;
+        }
+
+        #task-buttons{
+            margin-left: 10px;
+            width: 130px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        #login-form {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .login {
+            width: 200px;
+        }
+
+        #login-wrap {
+            margin: 0 auto;
+            width: 250px;
+        }
+
+        #user-pic {
+            width: 150px;
+            order: 1;
+        }
+
+        #stats {
+            width: 150px;
+            order: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        #stat {
+            margin-right: 10px;
+        }
+
+        #stat:last-child {
+            margin-right: 0;
+        }
+
+        #logout-wrap {
+            width: 150px;
+            order: 3;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        #user-pic-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #pagination{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #page-num{
+            margin: 0 6px 0 6px;
+        }
+
+
+    </style>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+</head>
+<body>
+<div class="ui">
+    <div id="content" class="ui raised segment">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+</body>
+</html>

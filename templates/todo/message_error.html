@@ -1,0 +1,41 @@
+{% if messages or form.errors %}
+    {% if messages %}
+        <div class="row">
+            <div class="column">
+                {% for message in messages %}
+                    <div class="ui negative message transition">
+                        <i class="close icon"></i>
+                        <div class="header">Error</div>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% elif form.errors %}
+        <div class="row">
+            <div class="column">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div id="error">
+                            <div class="ui negative message transition">
+                                <i class="close icon"></i>
+                                <div class="header">Error</div>
+                                {{ error|escape }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    <script>
+        $('.message .close')
+            .on('click', function () {
+                $(this)
+                    .closest('.row').fadeOut(300, function () {
+                    $(this).remove()
+                })
+            })
+        ;
+    </script>
+{% endif %}

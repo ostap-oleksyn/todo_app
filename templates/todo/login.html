@@ -1,0 +1,32 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+    <div class="ui padded centered grid">
+        <div class="row">
+            <div class="column">
+                <h2 class="ui center aligned icon header">
+                    <i class="circular tasks icon"></i>
+                    Tasks
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div id="login-wrap" class="ui segment">
+                    <h4 class="ui header">Login:</h4>
+                    <form id="login-form" class="ui form" action="{% url 'todo:login' %}" method="post">
+                        {% csrf_token %}
+                        {{ form.username }}
+                        {{ form.password }}
+                        <button class="login ui button" type="submit" value="Login">Login</button>
+
+                        <div class="ui checkbox">
+                           {{ form.remember_me }}
+                            <label>Remember Me</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       {% include 'todo/message_error.html' %}
+    </div>
+{% endblock %}
